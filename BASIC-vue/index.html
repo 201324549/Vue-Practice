@@ -15,11 +15,13 @@
         {{ year }} <br>
         <button v-on:click="plus()">더하기</button>
         <button v-on:click="minus()">빼기</button>
-
+    
         <br>
 
         <form v-on:submit.prevent="submit">
-            <input type="text"><br>
+         <!--  <input type="text" :value="text" @keyup="updateText"><br> --> 
+            <input type="text" v-model="text"><br>
+            {{text}} <br>
             <button type="submit">Submit</button>
 
         </form>
@@ -36,6 +38,7 @@
                 type: 'number',
                 link: 'https://www.youtube.com/',
                 year : 2020,
+                text: 'text',
 
             },
             methods: {
@@ -60,6 +63,10 @@
                 submit(){
                     alert('submitted');
                     console.log(this.year);
+                },
+                updateText(event){
+                    this.text = event.target.value;
+                    
                 }
             }
         })
