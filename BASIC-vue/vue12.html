@@ -18,14 +18,14 @@
         <button @click="changeText"> Click </button>
     </div>
     <script>
-        new Vue({
+        const app = new Vue({
             el: '#app',
             data: {
                name: 'kossie',
             },
             methods: {
                changeText(){
-                   app1.name = 'changekossie'
+                   this.name = 'changekossie'
                }
             },
 
