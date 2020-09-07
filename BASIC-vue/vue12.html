@@ -12,25 +12,97 @@
     <div id="app">
         {{ name }}<br>
         <button @click="changeText"> Click </button>
+
+        <br>
+
+        <kossie-button></kossie-button>
     </div>
+
+    <hr></hr>
+
+    
     <div id="app-1">
         {{ name }} <br>
         <button @click="changeText"> Click </button>
-    </div>
+
+
+        <br>
+
+        <kossie-button></kossie-button>
+    </div> 
     <script>
-        const app = new Vue({
-            el: '#app',
-            data: {
-               name: 'kossie',
+        Vue.component('hello-world', {
+            template: `
+            <div>
+            hello world
+            </div>
+            `,
+        });
+
+
+//        Vue.component('kossie-button', {
+//            template: `
+//            <div>
+//            {{ name }}<br>
+//            <hello-world></hello-world>
+//            <button @click="changeText"> Click </button>
+//            <hello-world></hello-world>
+//            </div>
+//            `,
+//
+//            data() {
+//                return{
+//                    name: 'kossie'
+//                }   
+//            },
+//            methods: {
+//                changeText() {
+//                    this.name = 'kossie updated'
+//                }
+//            },
+//
+//        });
+
+        const KossieButton = {
+            template: `
+            <div>
+            {{ name }}<br>
+            <hello-world></hello-world>
+            <button @click="changeText"> Click </button>
+            <hello-world></hello-world>
+            </div>
+            `,
+
+            data() {
+                return{
+                    name: 'kossie'
+                }   
             },
             methods: {
-               changeText(){
-                   this.name = 'changekossie'
-               }
+                changeText() {
+                    this.name = 'kossie updated'
+                }
             },
+        };
+
+    
+
+        const app = new Vue({
+            el: '#app',
+            components: {
+                'kossie-button': KossieButton
+            },
+           // data: {
+           //    name: 'kossie',
+           // },
+           // methods: {
+           //    changeText(){
+           //        this.name = 'changekossie'
+          //     }
+          //  },
 
 
-        })
+        });
 
         const app1 = new Vue({
             el: '#app-1',
@@ -42,7 +114,7 @@
                     this.name = 'changekossie1'
                 }
             },
-        })
+        });
 
     </script>
 
