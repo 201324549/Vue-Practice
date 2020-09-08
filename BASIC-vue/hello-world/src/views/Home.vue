@@ -1,22 +1,28 @@
 <template>
     <div>
       <h1>This is Home Page</h1>
-      <p>{{ name }}</p>
-      <KossieCoder title="home title"/>
+      <form action="">
+        <inputField v-model="name" />
+        <br>
+        <button>Submit</button>
+      </form>
+      {{ name }}
+      
     </div>
 </template>
 
 <script>
-import KossieCoder from '@/components/KossieCoder.vue';
+import InputField from '@/components/InputField.vue';
 export default {
   components: {
-    KossieCoder
+    InputField,
   },
+
   data() {
     return {
-      name: 'Kossie Coder'
+      name: ''
     }
-  }
+  },
 }
 </script>
 
